@@ -1,9 +1,9 @@
 import './App.css';
-import ComicViewer from './containers/ComicViewer.jsx';
+import ComicContainer from './containers/ComicViewer.jsx';
 
 function App() {
   return (
-    <ComicViewer />
+    <ComicContainer />
   );
 }
 
