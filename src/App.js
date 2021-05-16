@@ -1,5 +1,5 @@
 import './App.css';
-import ComicContainer from './containers/ComicViewer.jsx';
+import ComicContainer from './containers/ComicContainer.jsx';
 
 function App() {
   return (
