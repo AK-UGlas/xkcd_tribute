@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ComicFavs = ({favs, selected, addFavourite, onFavouriteChange}) => {
+const ComicFavs = ({favs, selected, toggle, onFavouriteChange}) => {
 
     const favOptions = favs.map((fav, idx) => {
         return <option value={fav.num} key={idx}>{fav.title}</option>
@@ -12,8 +12,8 @@ const ComicFavs = ({favs, selected, addFavourite, onFavouriteChange}) => {
         onFavouriteChange(event.target.value);
     }
 
-    const handleUpdateFavs = (event) => {
-
+    const handleUpdateFavs = () => {
+        toggle(!isFavourite, selected.num);
     }
 
     return (

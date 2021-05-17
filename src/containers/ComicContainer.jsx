@@ -21,20 +21,21 @@ const ComicContainer = () => {
         });
     };
 
-    const addFavourite = (fav) => {
-        // add a new comic to the favourites list
-        const favs = [...favourites].push(fav);
+    const toggleFavourite = (isFav, fav) => {
+        const favs = [...favourites]
+        if (isFav) {
+            // add a new comic to the favourites list
+            favs.push(fav);
+            
+        } else {
+            // remove from current list
+            const index = favs.findIndex(fav => {
+                return fav.num === fav;
+            })
+            favs.splice(index, 1);
+        };
         setFavourites(favs);
     };
-
-    const removeFavourite = (favNum) => {
-        const favs = [...favourites];
-        const index = favs.findIndex(fav => {
-            return fav.num === favNum;
-        })
-        favs.splice(index, 1);
-        setFavourites(favs);
-    }
 
     const navChange = (navOption) => {
         let n = null;
@@ -65,7 +66,7 @@ const ComicContainer = () => {
         <>
             <div>
                 <h1>An XKCD tribute page</h1>
-                <ComicFavs favs={favourites} selected={selectedComic} addFavourite={addFavourite} onComicChange={onComicChange}/>
+                <ComicFavs favs={favourites} selected={selectedComic} toggle={toggleFavourite} onComicChange={onComicChange}/>
             </div>
             <ComicViewer comic={selectedComic} latest={latestComic} comicChange={navChange}/>
             <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
